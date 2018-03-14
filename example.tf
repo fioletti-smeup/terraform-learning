@@ -9,5 +9,9 @@ resource "aws_instance" "example" {
   instance_type = "t2.micro"
 }
 
+resource "aws_eip" "ip" {
+  instance = "${aws_instance.example.id}"
+}
+
 variable access_key {}
 variable secret_key {}
